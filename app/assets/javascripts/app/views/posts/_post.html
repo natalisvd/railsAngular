@@ -1,0 +1,36 @@
+<div class="row ">
+    <div class="col-md-3"></div>
+<div class="col-md-6">
+
+    <div class="list-group">
+        <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading">{{post.title}}</h4>
+            <p class="list-group-item-text">{{post.body}}</p>
+        </a>
+    </div>
+
+
+    <a ng-click="comment_load()">Show more comment</a>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-warning" ng-repeat="comment in comments">
+            <table class="table1">
+                <tbody>
+                <tr>
+                    <td>{{comment.user.username}}</td>
+                    <td>{{comment.body}}</td>
+                    <td>{{comment.created_at | date:"dd MMM yyyy 'at' h:mma"}}</td>
+                </tr>
+                <tbody>
+            </table>
+        </li>
+    </ul>
+
+    <form ng-submit="addComment(form)">
+        <div class="form-group">
+            <input type="text" class="form-control"  ng-model="form.body" placeholder="Add your comment" ng-model-options="{debounce: 300}"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">add Comment</button>
+    </form>
+</div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "railsAngular",
+  "authors": [
+    "Boychenko Nataliya <natalyasvd@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-ui-router": "^0.4.2",
+    "bootstrap": "^3.3.7",
+    "AngularDevise": "angular-devise#^1.3.0",
+    "lodash": "^4.17.4",
+    "ng-file-upload": "^12.2.13"
+  }
+}

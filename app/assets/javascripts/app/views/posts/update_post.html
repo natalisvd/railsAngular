@@ -1,0 +1,14 @@
+<div class="row col-md-4">
+    <form  ng-submit="updatePost(form) ">
+        <h3>Edit Post</h3>
+        <input type="hidden" ng-model="form.id">
+        <div class="form-group">
+            <input type="text" class="form-control"  ng-model="form.title" placeholder="title" ng-model-options="{debounce: 300}"></input>
+        </div>
+
+        <div class="form-group">
+            <textarea type="text" class="form-control" ng-model="form.body" placeholder="body" ng-model-options="{debounce: 300}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">update Post</button>
+    </form>
+</div>
