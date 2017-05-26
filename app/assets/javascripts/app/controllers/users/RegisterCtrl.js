@@ -3,7 +3,7 @@ app.controller('RegisterCtrl', function($scope, $rootScope, Auth, $state, Upload
 
 
     $scope.register = function(){
-        $scope.user.avatar = new File([$scope.file], $scope.file.$ngfName)
+        $scope.user.avatar = new File([$scope.file], $scope.file.$ngfName);
 
 
         console.log($scope.user.avatar);
@@ -25,12 +25,29 @@ app.controller('RegisterCtrl', function($scope, $rootScope, Auth, $state, Upload
             }
         }).then(function(data){
             Auth.login(data);
-            $state.go('posts')
-        })
+            $state.go('posts');
+        });
 
     };
 
-    $scope.registr_facebook = function(){
-
-    }
+    $scope.register_facebook = function(){
+            var checkUser, openUrl;
+            checkUser = function() {
+                return Auth.login().then((function(data) {
+                    if (data.id) {
+                        $modalInstance.dismiss("cancel");
+                    } else {
+                        Auth._currentUser = null;
+                        return $scope.error = data.error;
+                    }
+                }), function(error) {
+                    return $scope.errors = error.data.errors;
+                });
+            };
+            openUrl = '/users/auth/facebook';
+            window.$windowScope = $scope;
+            window.open(openUrl, "Authenticate Account", "width=540, height=520");
+            window.checkUserOnParent = checkUser;
+            return true;
+    };
 });
