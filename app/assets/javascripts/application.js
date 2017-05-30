@@ -20,6 +20,8 @@
 //= require lodash/dist/lodash
 //= require ng-file-upload
 //= require bootstrap-sprockets
+//= require ng-facebook
+
 
 //= require_tree .
 

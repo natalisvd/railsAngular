@@ -30,6 +30,7 @@ app.controller('RegisterCtrl', function($scope, $rootScope, Auth, $state, Upload
 
     };
 
+
     $scope.register_facebook = function(){
             var checkUser, openUrl;
             checkUser = function() {
@@ -46,7 +47,7 @@ app.controller('RegisterCtrl', function($scope, $rootScope, Auth, $state, Upload
             };
             openUrl = '/users/auth/facebook';
             window.$windowScope = $scope;
-            window.open(openUrl, "Authenticate Account", "width=540, height=520");
+            window.open(openUrl, "Authenticate Account", "width=740, height=520");
             window.checkUserOnParent = checkUser;
             return true;
     };
