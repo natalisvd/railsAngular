@@ -4,4 +4,7 @@ class Post < ApplicationRecord
   validates :title, length: {minimum: 1}, presence: true
   validates :body, length: {minimum: 1}, presence: true
 
+  mount_uploader :file_post, AvatarUploader
+
+
 end

@@ -3,17 +3,17 @@ app.controller('AuthCtrl', function($scope, $rootScope, Auth, $state){
     $scope.login = function(user){
         Auth.login(user, config).then(function(user){
             $rootScope.user = user;
-            $state.go('posts')
+            $state.go('posts');
         }, function(errorResponse){}
-        )
+        );
     };
 
     $scope.register = function(){
         Auth.register($scope.user, config).then(function(user){
                 $rootScope.user = user;
-                $state.go('posts')
+                $state.go('posts');
             }, function(errorResponse){}
-        )
+        );
     };
 
 

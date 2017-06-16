@@ -4,11 +4,6 @@ app.controller('RegisterCtrl', function($scope, $rootScope, Auth, $state, Upload
 
     $scope.register = function(){
         $scope.user.avatar = new File([$scope.file], $scope.file.$ngfName);
-
-
-        console.log($scope.user.avatar);
-        console.log($scope.user);
-
         $scope.obj_user = new FormData();
         $scope.obj_user.append('user[username]', $scope.user.username);
         $scope.obj_user.append('user[email]', $scope.user.email);
@@ -30,25 +25,32 @@ app.controller('RegisterCtrl', function($scope, $rootScope, Auth, $state, Upload
 
     };
 
-
     $scope.register_facebook = function(){
             var checkUser, openUrl;
             checkUser = function() {
-                return Auth.login().then((function(data) {
-                    if (data.id) {
+                return Auth.currentUser().then(function (user){
+                    $rootScope.user = user;
+                    console.log(user);
+                    if (user.id) {
                         $modalInstance.dismiss("cancel");
                     } else {
                         Auth._currentUser = null;
-                        return $scope.error = data.error;
+                        return $scope.error = 'error';
                     }
                 }), function(error) {
-                    return $scope.errors = error.data.errors;
-                });
+                    return $scope.error = error.user.errors;
+                };
             };
             openUrl = '/users/auth/facebook';
             window.$windowScope = $scope;
-            window.open(openUrl, "Authenticate Account", "width=740, height=520");
-            window.checkUserOnParent = checkUser;
-            return true;
+            var W = window.open(openUrl, "Authenticate Account", "width=740, height=520");
+            window.checkUserOnParent = checkUser();
+            setTimeout(function(){ W.close();
+            location.reload();}, 2000);
+
+
+        return true;
     };
+
+
 });
