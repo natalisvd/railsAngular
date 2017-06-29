@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614101048) do
+ActiveRecord::Schema.define(version: 20170619080249) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 20170614101048) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "sender_type",                                                           null: false
+    t.integer  "sender_id",                                                             null: false
+    t.string   "receiver_type",                                                         null: false
+    t.integer  "receiver_id",                                                           null: false
+    t.datetime "created_at",                                                            null: false
+    t.datetime "updated_at",                                                            null: false
+    t.text     "body"
+    t.text     "#<ActiveRecord::ConnectionAdapters::TableDefinition:0x000000031dcf60>"
   end
 
   create_table "posts", force: :cascade do |t|
