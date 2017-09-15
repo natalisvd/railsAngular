@@ -16,7 +16,7 @@ app.config([
         //     $locationProvider.html5Mode(true); // Uses "/some-url" instead of "/!#some-url"
         // }
 
-        $stateProvider.state({
+    $stateProvider.state({
         name: 'home',
         url: '/',
         templateUrl: 'app/views/home/_home.html',
@@ -50,8 +50,8 @@ app.config([
         controller: 'AuthCtrl',
         onEnter: function(Auth, $state){
             Auth.currentUser().then(function(){
-                $state.go('home')
-            })
+                $state.go('home');
+            });
         }
     });
 
@@ -62,10 +62,17 @@ app.config([
         controller: 'RegisterCtrl',
         onEnter: function(Auth, $state){
             Auth.currentUser().then(function(){
-                $state.go('home')
-            })
+                $state.go('home');
+            });
         }
     });
+        $stateProvider.state({
+            name: 'edit_user',
+            url: '/user/edit',
+            templateUrl: 'app/views/users/edit.html',
+            controller: 'EditUserCtrl'
+
+        });
     $urlRouterProvider.otherwise('/');
 
 }]);

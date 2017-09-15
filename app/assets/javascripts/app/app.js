@@ -1,4 +1,4 @@
-var app= angular.module('railsAngular', ['ui.router', 'Devise', 'templates', 'ngResource', 'ngFileUpload']);
+var app= angular.module('railsAngular', ['ui.router', 'Devise', 'templates', 'ngResource', 'ngFileUpload', 'monospaced.qrcode']);
 
 app.run(['Auth', function (Auth) {
     Auth.currentUser().then(function(user) {

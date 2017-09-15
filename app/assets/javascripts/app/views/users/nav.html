@@ -20,10 +20,11 @@
                 <li ng-hide="signedIn()"><a ui-sref="login">Login</a></li>
                 <li ng-hide="signedIn()"><a ui-sref="register">Register</a></li>
                 <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+                <li ng-show="signedIn()"><a ui-sref="edit_user">Edit Profile</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="navbar-brand">{{user.username}}</a></li>
-                <li><a class="navbar-brand"><img src={{user.avatar.url}}></a></li>
+                <li><a class="navbar-brand userAvatar"><img src={{user.avatar.url}}></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

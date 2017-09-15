@@ -7,6 +7,9 @@
             <img src="{{post.file_post.url}}" class="img_post">
             <h4 class="list-group-item-heading">{{post.title}}</h4>
             <p class="list-group-item-text">{{post.body}}</p>
+            <qrcode data="{{post.body}}"></qrcode>
+            <qrcode data="{{post.title}}" href="http://example.com"></qrcode>
+
         </a>
     </div>
 
@@ -34,4 +37,8 @@
         <button type="submit" class="btn btn-primary">add Comment</button>
     </form>
 </div>
+    <p>{{array_numb}}</p>
+    <p>{{bigest_numb}}</p>
 </div>
+
+

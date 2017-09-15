@@ -21,6 +21,9 @@
 //= require ng-file-upload
 //= require bootstrap-sprockets
 //= require ng-facebook
+// = require qrcode-generator/js/qrcode.js
+// = require angular-qrcode/angular-qrcode.js
+
 
 
 //= require_tree .

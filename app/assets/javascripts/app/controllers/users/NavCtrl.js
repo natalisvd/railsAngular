@@ -7,14 +7,14 @@ app.controller('NavCtrl', function($scope, Auth, $rootScope){
     });
 
     $scope.$on('devise:new-registration', function (e, user){
-        $rootScope.user = user
+        $rootScope.user = user;
     });
 
     $scope.$on('devise:login', function (e, user){
-        $rootScope.user = user
+        $rootScope.user = user;
     });
 
     $scope.$on('devise:logout', function (e, user){
-        $rootScope.user = undefined
+        $rootScope.user = undefined;
     });
     });

@@ -29,6 +29,8 @@ app.controller('PostCtrl', function($scope, $stateParams, Post, Comments, Commen
 
         });
         $scope.form.body = '';
-    }
+    };
+
+
 
 });

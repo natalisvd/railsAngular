@@ -21,6 +21,39 @@ class User < ApplicationRecord
     end
   end
 
+  # def sort_array
+  #   mas = [3, 32, 328, 234, 15, 15412, 8, 89, 87, 80, 151, 1511]
+  #   mas.sort! do |a,b|
+  #     b.to_s+a.to_s<=> a.to_s+b.to_s
+  #   end
+  #   mas.join(&:to_i)
+  # end
+  #
+  #
+  # def sort_array_puz
+  #   mas = [3, 32, 328, 234, 15, 15412, 8, 89, 87, 80, 151, 1511]
+  #   swap = true
+  #   size = mas.length - 1
+  #   while swap
+  #     swap = false
+  #     for i in 0...size
+  #       a = mas[i].to_s + mas[i + 1].to_s
+  #       b = mas[i+1].to_s + mas[i].to_s
+  #       swap |= b > a
+  #       mas[i], mas[i + 1] = mas[i + 1], mas[i] if b > a
+  #     end
+  #     size -= 1
+  #   end
+  #   mas.join(&:to_i)
+  # end
+  #
+  #
+  # def sort_array2
+  #   mas = [3, 32, 328, 234, 15, 15412, 8, 89, 87, 80, 151, 1511]
+  #   mas.permutation.to_a.map(&:join).max.to_s
+  # end
+
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
